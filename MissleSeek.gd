@@ -33,15 +33,10 @@ func _process(delta):
 		queue_free()
 		
 	
-	if timer > 1:
-		var offset = translation - target.translation  
-		#print(target.translation)
-		#translation += offset
-		#print(offset)
-		#else:	
-		transform.origin += offset * velocity  * delta
-	else:
-		transform.origin += velocity * delta	
+	elif timer > 1:
+		var offset = translation - target.translation	
+		velocity = -offset.normalized() * speed
+
+	transform.origin += velocity  * delta
+		
 	
-
-
