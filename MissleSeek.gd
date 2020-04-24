@@ -34,9 +34,13 @@ func _process(delta):
 		
 	
 	elif timer > 1:
+		look_at(target.translation,Vector3(0,0,-1))
+		#look_at_from_position(translation, -target.translation, Vector3.UP)
 		var offset = translation - target.translation	
+		print(offset)
 		velocity = -offset.normalized() * speed
-
+		
 	transform.origin += velocity  * delta
 		
 	
+

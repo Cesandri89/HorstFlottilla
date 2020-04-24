@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/HP_RockForm_02_collision.obj-24d770aac71a1893da22d51c8095cefc.mesh"
+
+[deps]
+
+files=[ "res://.import/HP_RockForm_02_collision.obj-24d770aac71a1893da22d51c8095cefc.mesh" ]
+
+source_file="res://objects/models/HP_RockForm_02_collision.obj"
+dest_files=[ "res://.import/HP_RockForm_02_collision.obj-24d770aac71a1893da22d51c8095cefc.mesh", "res://.import/HP_RockForm_02_collision.obj-24d770aac71a1893da22d51c8095cefc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

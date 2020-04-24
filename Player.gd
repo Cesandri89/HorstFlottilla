@@ -10,6 +10,8 @@ var TURNSPEED = 1 # rotating around y axis
 var PITCHSPEED = 1 # rotation around x axis
 var ROLLSPEED = 1 # rotation around z axis
 var STRAFESPEED = 2
+var velocity = Vector3()
+var direction = Vector3()
 #var direction = Vector3(0,0,1) #vector looking at z, axis, like the player at start
 
 
@@ -18,42 +20,44 @@ func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	pass
+	var collisions = get_slide_collision(get_slide_count() -1)
 	#print( rotation_degrees) # TODO: mod operator % 360
 	# --- steering ---
+	velocity = Vector3.ZERO
+	direction = Vector3.ZERO
 	var thrust  = 0
 	var turn = 0
 	var debug = false
 	if Input.is_action_pressed("ui_forward"):
-		thrust += 1
+		direction = Vector3(0,0,1)
 		debug = true
 	if Input.is_action_pressed("ui_backward"):
-		thrust -= 1
+		direction = Vector3(0,0,-1)
 		debug = true
-	if Input.is_action_pressed("ui_rotate_right"):
-		turn -= 1 
+	if Input.is_action_pressed("ui_right"):
+		turn -= 3
 		debug = true
-	if Input.is_action_pressed("ui_rotate_left"):
-		turn += 1
+	if Input.is_action_pressed("ui_left"):
+		turn += 3
 		debug = true
 	if turn != 0:
 		rotate_object_local(Vector3(0,1,0), turn * TURNSPEED * delta)
 	turn = 0
-	if Input.is_action_pressed("ui_tilt_nose_up"):
-		turn += 1
+	if Input.is_action_pressed("ui_up"):
+		turn += 3
 		debug = true
-	if Input.is_action_pressed("ui_tilt_nose_down"):
-		turn -= 1
+	if Input.is_action_pressed("ui_down"):
+		turn -= 3
 		debug = true
 	if turn != 0:
 		rotate_object_local(Vector3(1,0,0), turn * PITCHSPEED * delta)
 	turn = 0
-	if Input.is_action_pressed("ui_roll_right"):
-		turn += 40
-		debug = true
-	if Input.is_action_pressed("ui_roll_left"):
-		turn -= 40
-		debug = true
+#	if Input.is_action_pressed("ui_right"):
+#		turn += 40
+#		debug = true
+#	if Input.is_action_pressed("ui_left"):
+#		turn -= 40
+#		debug = true
 	if turn != 0:
 		global_rotate(Vector3(0,0,1), turn * ROLLSPEED * delta)
 		
@@ -102,7 +106,17 @@ func _process(delta):
 		debug = true
 		translate(Vector3(0, -1*delta*STRAFESPEED, 0))
 		
-	# -------------- print debug info --------	
+	#print(global_transform.basis.z)
+	velocity = global_transform.basis.z * direction * SPEED	
+		
+	move_and_slide(global_transform.basis.z * SPEED)
+		
+	
+
+	#	if collisions.lenght() > 0:
+#		if collisions.name == "Rock":
+#			print("pippo is great!")
+#	# -------------- print debug info --------	
 	#if debug:
 	#	print("position: ", get_transform(), "heading: ", local_direction )
 	
