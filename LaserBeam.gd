@@ -1,7 +1,8 @@
 extends Area
 
-var speed = 15
+var speed = 40
 var velocity = Vector3()
+export var damage : int = 50
 
 # straight-shooting missle, ends if timer (2s) runs out
 
@@ -21,6 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	pass
+	
 	transform.origin += velocity * delta
 	#if delta > 2:
 		
@@ -31,3 +33,17 @@ func _process(delta):
 func _on_Timer_timeout():
 	#pass # Replace with function body.
 	queue_free()
+
+
+func _on_LaserBeam_area_entered(area):
+	#print("I just collided with: ", area.name)
+	if "BoundBox" in area.name:
+		print("The laser is dying")
+		#print("Box" in area.name)
+		queue_free()
+		
+		
+		
+	
+	
+	

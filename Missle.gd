@@ -1,6 +1,6 @@
 extends Area
 
-var speed = 50
+var speed = 15
 var velocity = Vector3()
 
 # straight-shooting missle, ends if timer (2s) runs out
@@ -21,7 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	pass
-	transform.origin += velocity * delta * speed
+	transform.origin += velocity * delta
 	#if delta > 2:
 		
 

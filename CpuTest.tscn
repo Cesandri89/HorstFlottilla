@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30052, 0, 0.733263 )
+local_coords = false
+mesh = SubResource( 1 )
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 2 )
+gravity = Vector3( -9.8, 0, 0 )
+color = Color( 0.956863, 0.752941, 0.054902, 1 )

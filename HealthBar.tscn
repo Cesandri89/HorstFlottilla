@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/textures/barHorizontal_green_mid 200.png" type="Texture" id=1]
+[ext_resource path="res://HealthBar.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[node name="HealthBar" type="Sprite3D"]
+material_override = SubResource( 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 400, 52 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+
+[node name="HealthBar" type="TextureProgress" parent="Viewport"]
+modulate = Color( 0.0117647, 0.247059, 0.882353, 1 )
+material = SubResource( 2 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture_progress = ExtResource( 1 )

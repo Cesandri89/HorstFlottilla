@@ -1,6 +1,6 @@
 extends Area
 
-var speed = 15
+var speed = 7
 var velocity = Vector3()
 
 # straight-shooting missle, ends if timer (2s) runs out
@@ -26,21 +26,33 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#print("missletimer:", timer)
 #	pass	
 	timer += delta
-	if timer > 5:
+	if timer > 15:
 		print("queque free!")
 		queue_free()
-		
-	
 	elif timer > 1:
-		look_at(target.translation,Vector3(0,0,-1))
-		#look_at_from_position(translation, -target.translation, Vector3.UP)
-		var offset = translation - target.translation	
-		print(offset)
-		velocity = -offset.normalized() * speed
-		
-	transform.origin += velocity  * delta
-		
+		var offset = translation - target.translation
+		look_at_from_position(translation, target.translation, Vector3.UP)
+		rotate_object_local(Vector3.UP, deg2rad(180))		
+		velocity = -offset.normalized() * speed 
+		if timer < 2:
+			# little pause 1 second
+			return 
 	
+	
+	transform.origin += velocity * delta	
+	
+		#if timer > 1:
+		#	var offset = translation - target.translation  
+		#	#print(target.translation)
+		#	#translation += offset
+		#	#print(offset)
+		#	#else:	
+		#	transform.origin += offset * velocity  * delta
+		#else:
+		#	transform.origin += velocity * delta	
+		
+
 
