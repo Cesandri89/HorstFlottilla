@@ -17,11 +17,20 @@ _global_script_class_icons={
 
 config/name="Horstflotilla 2"
 run/main_scene="res://root.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://Globals.gd"
+Globals="*res://Scripts/Globals.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/width=600
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -208,4 +217,3 @@ decrease_fov={
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_environment="res://default_env.tres"
