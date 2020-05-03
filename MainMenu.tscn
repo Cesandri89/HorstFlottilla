@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/MainMenuHandler.gd" type="Script" id=1]
+[ext_resource path="res://fonts/TruenoBd.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/TruenoUltBlk.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/textures/ship5.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/background_earth.jpg" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 42.0
+texture = ExtResource( 6 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 590.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+
+[node name="Asteroids 3D" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 580.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Asteroids3D"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 41.0
+margin_right = 580.0
+margin_bottom = 249.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 20
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 188.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 380.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+custom_constants/hseparation = 20
+text = "Play"
+
+[node name="UpgradesButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 47.0
+margin_right = 380.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+custom_constants/hseparation = 20
+text = "Upgrades"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 380.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 2 )
+custom_constants/hseparation = 20
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 380.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 2 )
+custom_constants/hseparation = 20
+text = "Exit"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+margin_top = 253.0
+margin_right = 580.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+texture = ExtResource( 4 )
+stretch_mode = 4
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_button_down"]

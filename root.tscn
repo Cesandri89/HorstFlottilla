@@ -100,6 +100,7 @@ points = PoolVector3Array( 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
 [node name="root" type="Spatial"]
 script = ExtResource( 4 )
 rock_scene = ExtResource( 7 )
+rock_amount = 10
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.69281, 0 )
@@ -247,6 +248,7 @@ material/0 = SubResource( 22 )
 environment = ExtResource( 6 )
 
 [node name="Rock" type="MeshInstance" parent="."]
+visible = false
 mesh = ExtResource( 11 )
 material/0 = SubResource( 23 )
 
