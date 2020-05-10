@@ -21,14 +21,14 @@ run/main_scene="res://root.tscn"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
-
-[debug]
-
-settings/stdout/print_fps=true
+Main="*res://Main.tscn"
+LaserHit="*res://Scenes/LaserHit.tscn"
 
 [display]
 
 window/size/width=600
+window/size/test_width=900
+window/size/test_height=900
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -211,6 +211,11 @@ increase_fov={
 decrease_fov={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":50,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 
