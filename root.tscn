@@ -1,10 +1,10 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/CameraController.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pointer2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/root.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game_settings.tres" type="Environment" id=6]
 [ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Pointer1.tscn" type="PackedScene" id=8]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/FallingBrick.tscn" type="PackedScene" id=10]
 [ext_resource path="res://fonts/default_font.tres" type="DynamicFont" id=11]
 [ext_resource path="res://CannonTower.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/WaveCall.tscn" type="PackedScene" id=13]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -87,7 +88,7 @@ points = PoolVector3Array( 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
 [node name="root" type="Spatial"]
 script = ExtResource( 4 )
 rock_scene = ExtResource( 7 )
-rock_amount = 10
+wave_intro_scene = ExtResource( 13 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.69281, 0 )
